@@ -1,10 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
+import { LandingPage } from '@/modules/landing';
+
 export function Layout() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Monolith Modular Project Template</h1>
-        <p className="text-xl text-gray-600">Coming soon</p>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      {/* Future routes */}
+      <Route path="*" element={<LandingPage />} />
+    </Routes>
   );
 }

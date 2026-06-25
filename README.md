@@ -2,7 +2,7 @@
 
 Enterprise-grade monorepo template for building modern web applications. Built with React, TypeScript, Express, and Tailwind CSS using Turbo monorepo architecture.
 
-**Created by:** [enzox0](https://github.com/enzox0)
+**Created by:** [EmsiPrds](https://github.com/EmsiPrds)
 
 ## Features
 
