@@ -1,4 +1,5 @@
 import {
+  EmergencyMarquee,
   TopBar,
   Navbar,
   HeroSection,
@@ -17,6 +18,7 @@ import {
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
+      <EmergencyMarquee />
       <TopBar />
       <Navbar />
       <main>

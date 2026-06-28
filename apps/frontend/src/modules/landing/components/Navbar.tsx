@@ -7,7 +7,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="bg-white border-b border-gray-100 sticky top-[40px] z-40 shadow-sm"
+      className="bg-white border-b border-gray-100 shadow-sm"
       role="navigation"
       aria-label="Main navigation"
     >

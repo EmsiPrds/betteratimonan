@@ -1,3 +1,4 @@
+export { EmergencyMarquee } from './EmergencyMarquee';
 export { TopBar } from './TopBar';
 export { Navbar } from './Navbar';
 export { HeroSection } from './HeroSection';

@@ -9,7 +9,7 @@ export function TopBar() {
   });
 
   return (
-    <div className="bg-primary-800 text-white text-sm sticky top-0 z-50">
+    <div className="bg-primary-800 text-white text-sm">
       <div className="section-container">
         <div className="flex items-center justify-between py-2">
           {/* Left side - Date & Contact */}
