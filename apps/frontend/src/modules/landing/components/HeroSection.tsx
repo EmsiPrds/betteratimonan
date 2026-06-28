@@ -1,5 +1,21 @@
+import { useState, useEffect, useCallback } from 'react';
 import { Users, MapPin, Award, Map, Play } from 'lucide-react';
 import { SearchCard } from './SearchCard';
+
+const heroImages = [
+  '/images/hero-atimonan.jpg',
+  '/images/465548670_9708499329164263_1736934277541672661_n.jpg',
+  '/images/482246205_574803782264197_8568335410605310914_n.jpg',
+  '/images/484806739_574794062265169_4172030730123442421_n.jpg',
+  '/images/492480616_122199223778363572_8446508209609943248_n.jpg',
+  '/images/515443897_24753107957624209_2363329454110972451_n.jpg',
+  '/images/518997844_822237540372843_6842356026899090078_n.jpg',
+  '/images/519710008_822237490372848_8620714494762811492_n.jpg',
+  '/images/654416222_26031332556536347_3243145416363128106_n.jpg',
+  '/images/75450176_2574557245970042_1258580586306469888_n.jpg',
+  '/images/76647887_2574557155970051_6475496937771499520_n.jpg',
+  '/images/DzwOJOlVsAAsrsr.jpg',
+];
 
 const heroStats = [
   { icon: Users, value: '45,231', label: 'Population' },
@@ -8,16 +24,42 @@ const heroStats = [
   { icon: Map, value: '160.45 km²', label: 'Land Area' },
 ];
 
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageOrder] = useState(() => shuffleArray(heroImages));
+
+  const nextImage = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % imageOrder.length);
+  }, [imageOrder.length]);
+
+  useEffect(() => {
+    const interval = setInterval(nextImage, 6000);
+    return () => clearInterval(interval);
+  }, [nextImage]);
+
   return (
     <section className="relative overflow-hidden min-h-[90vh] flex flex-col">
-      {/* Background Image with Overlay */}
+      {/* Background Images with Crossfade */}
       <div className="absolute inset-0">
-        <img
-          src="/images/hero-atimonan.jpg"
-          alt="Aerial view of Atimonan, Quezon"
-          className="w-full h-full object-cover"
-        />
+        {imageOrder.map((src, index) => (
+          <img
+            key={src}
+            src={src}
+            alt="Atimonan, Quezon"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-white/30" />
       </div>
