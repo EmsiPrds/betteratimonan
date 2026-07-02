@@ -9,13 +9,11 @@ export function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-primary-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
-              <div>
-                <span className="text-white font-bold text-lg leading-tight block">Better</span>
-                <span className="text-gray-400 text-xs leading-tight block -mt-0.5">Atimonan</span>
-              </div>
+              <img
+                src="/images/Logo.svg"
+                alt="Better Atimonan Logo"
+                className="h-16 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-4">
               Transparency portal of Atimonan with accessibility, accountability, and public
