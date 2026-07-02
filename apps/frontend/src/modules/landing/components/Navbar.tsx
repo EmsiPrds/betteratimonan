@@ -1,27 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { navLinks } from '../data/mock-data';
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Always show at the very top
+        setIsVisible(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up — show
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down — hide
+        setIsVisible(false);
+        setIsMobileMenuOpen(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav
-      className="bg-white border-b border-gray-100 shadow-sm"
+      className={`bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50
+                  transition-transform duration-300 ease-in-out
+                  ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 py-2">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2" aria-label="Better Atimonan Home">
-            <div className="w-9 h-9 bg-primary-800 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">B</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-primary-800 leading-tight">Better</span>
-              <span className="text-xs text-gray-500 leading-tight -mt-0.5">Atimonan</span>
-            </div>
+            <img
+              src="/images/Logo.svg"
+              alt="Better Atimonan Logo"
+              className="h-16 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}

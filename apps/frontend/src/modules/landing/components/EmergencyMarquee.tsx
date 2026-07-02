@@ -1,5 +1,3 @@
-import { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Phone, Flame, Shield, AlertTriangle, Building2 } from 'lucide-react';
 
 const hotlines = [
@@ -11,66 +9,50 @@ const hotlines = [
   { label: 'RZIMC', number: '0906 819 5589', icon: Phone },
 ];
 
+// Duplicate so the second half is identical — translateX(-50%) lands on exact repeat
+const items = [...hotlines, ...hotlines];
+
 export function EmergencyMarquee() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [contentWidth, setContentWidth] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Duplicate items for seamless loop
-  const items = [...hotlines, ...hotlines];
-
-  useEffect(() => {
-    if (containerRef.current) {
-      // Measure half the content (one full set of hotlines)
-      setContentWidth(containerRef.current.scrollWidth / 2);
-    }
-  }, []);
-
   return (
     <div
       className="bg-orange-600 text-white text-xs py-1.5 overflow-hidden relative"
       role="marquee"
       aria-label="Emergency hotline numbers"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
-      <motion.div
-        ref={containerRef}
-        className="flex items-center gap-8 whitespace-nowrap"
-        animate={{
-          x: [0, -contentWidth],
-        }}
-        transition={{
-          x: {
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-            repeatType: 'loop',
-          },
-        }}
-        style={{
-          animationPlayState: isPaused ? 'paused' : 'running',
-        }}
-        whileHover={{ animationPlayState: 'paused' }}
-      >
+      <style>{`
+        @keyframes marquee-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee-scroll 28s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="marquee-track">
         {items.map((hotline, index) => {
           const Icon = hotline.icon;
           return (
             <a
               key={`${hotline.label}-${index}`}
               href={`tel:${hotline.number.replace(/\s/g, '')}`}
-              className="inline-flex items-center gap-1.5 hover:text-orange-200 transition-colors"
+              className="inline-flex items-center gap-1.5 px-6 hover:text-orange-200 transition-colors shrink-0"
               aria-label={`Call ${hotline.label}: ${hotline.number}`}
             >
               <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-orange-700">
                 <Icon className="w-2.5 h-2.5" />
               </span>
               <span className="font-semibold">{hotline.label}:</span>
-              <span>{hotline.number}</span>
+              <span className="ml-1">{hotline.number}</span>
             </a>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
 }
