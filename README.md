@@ -139,9 +139,6 @@ pnpm --version
 
 ```bash
 pnpm install
-```
-
-#### Step 4: Environment Configuration
 
 ```bash
 copy .env.example .env
@@ -167,7 +164,7 @@ pnpm run dev:backend    # Terminal 2 - Backend on port 5000
 pnpm run dev:worker     # Terminal 3 - Worker process
 ```
 
-#### Step 7: Access the Application
+### Access the Application
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
@@ -190,38 +187,14 @@ pnpm run dev:worker     # Terminal 3 - Worker process
 - `pnpm run docker:down` - Stop Docker services
 - `pnpm run docker:build` - Build Docker images
 
-### Project Structure
+## Project Structure
 
 ```
 better-atimonan/
 ├── apps/                      # Application packages
 │   ├── frontend/              # React + Vite frontend
-│   │   ├── src/
-│   │   │   ├── app/
-│   │   │   │   ├── shell/     # App shell and layout
-│   │   │   │   ├── providers/ # React providers
-│   │   │   │   └── router/    # Routing configuration
-│   │   │   ├── modules/       # Feature modules
-│   │   │   ├── shared/        # Shared UI components and utilities
-│   │   │   └── main.tsx
-│   │   ├── public/            # Static assets
-│   │   └── tests/             # Test files
 │   ├── backend/               # Express.js backend
-│   │   ├── src/
-│   │   │   ├── bootstrap/     # App initialization
-│   │   │   ├── gateway/       # API controllers and routes (HTTP, GraphQL, WebSocket)
-│   │   │   ├── modules/       # Domain modules
-│   │   │   ├── shared/        # Shared utilities and middleware
-│   │   │   ├── infrastructure/# Database and external services
-│   │   │   └── main.ts
-│   │   └── tests/             # Unit, integration, and E2E tests
 │   └── worker/                # Background job processor
-│       ├── src/
-│       │   ├── jobs/          # Job definitions
-│       │   ├── queues/        # Queue configuration
-│       │   ├── schedulers/    # Scheduled jobs
-│       │   └── processors/    # Job processors
-│       └── package.json
 ├── packages/                  # Shared packages
 │   ├── types/                 # Shared TypeScript types
 │   ├── utils/                 # Shared utility functions
@@ -237,17 +210,8 @@ better-atimonan/
 │   ├── monitoring/            # Prometheus, Grafana, Loki
 │   └── scripts/               # Utility scripts
 ├── docs/                      # Documentation
-│   ├── architecture/
-│   ├── api/
-│   ├── decisions/
-│   ├── runbooks/
-│   └── diagrams/
-├── tools/                     # Development tools
-│   ├── generators/            # Code generators
-│   ├── codemods/              # Codemod scripts
-│   └── automation/            # Automation scripts
-└── .github/                   # GitHub workflows and config
-    └── workflows/             # CI/CD, lint, security workflows
+├── tools/                     # Development tools and generators
+└── .github/                   # CI/CD workflows
 ```
 
 ## Documentation
