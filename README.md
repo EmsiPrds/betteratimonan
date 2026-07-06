@@ -1,10 +1,10 @@
 # Better Atimonan
 
-A modern web application for Atimonan. Built with React, TypeScript, Express, and Tailwind CSS using Turbo monorepo architecture.
+A full-stack web application for Better Atimonan. Built with React, TypeScript, Express, and Tailwind CSS using a Turbo monorepo architecture.
 
 ## Features
 
-- **Monolith Modular Architecture**: Turbo-powered monorepo with shared packages
+- **Monorepo Architecture**: Turbo-powered with shared packages
 - **Frontend**: React + Vite + Tailwind CSS
 - **Backend**: Express.js + MongoDB + Redis
 - **Worker**: Background job processor
@@ -36,8 +36,6 @@ graph TB
         subgraph "Domain Modules"
             Auth[Auth Module]
             Users[Users Module]
-            Products[Products Module]
-            Orders[Orders Module]
             Notifications[Notifications Module]
         end
         
@@ -80,14 +78,10 @@ graph TB
     
     Middleware --> Auth
     Middleware --> Users
-    Middleware --> Products
-    Middleware --> Orders
     Middleware --> Notifications
     
     Auth --> MongoDB
     Users --> MongoDB
-    Products --> MongoDB
-    Orders --> MongoDB
     
     Auth --> Redis
     Users --> Redis
@@ -106,7 +100,6 @@ graph TB
     
     Auth -.-> Types
     Users -.-> Types
-    Products -.-> Types
 
     style Browser fill:#e1f5ff
     style Mobile fill:#e1f5ff
@@ -128,25 +121,47 @@ graph TB
 
 ### Installation
 
+#### Step 1: Clone
+
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/betteratimonan.git
-cd betteratimonan
+git clone <repository-url>
+cd better-atimonan
+```
 
-# Install pnpm globally
+#### Step 2: Install pnpm
+
+```bash
 npm install -g pnpm@8.15.0
+pnpm --version
+```
 
-# Install all dependencies
+#### Step 3: Install Dependencies
+
+```bash
 pnpm install
 
-# Copy environment example file
+```bash
 copy .env.example .env
+# Edit .env with your configuration
+```
 
-# Start Docker services (optional)
+#### Step 5: Start Infrastructure Services (Optional)
+
+```bash
+# Start MongoDB, Redis with Docker
 pnpm run docker:up
+```
 
-# Start all development servers
+#### Step 6: Start Development Servers
+
+```bash
+# All services at once
 pnpm run dev
+
+# Or individually
+pnpm run dev:frontend   # Terminal 1 - Frontend on port 3000
+pnpm run dev:backend    # Terminal 2 - Backend on port 5000
+pnpm run dev:worker     # Terminal 3 - Worker process
 ```
 
 ### Access the Application
@@ -155,7 +170,9 @@ pnpm run dev
 - **Backend API**: http://localhost:5000
 - **API Documentation**: http://localhost:5000/api-docs
 
-## Available Scripts
+## Development
+
+### Available Scripts
 
 - `pnpm run dev` - Start all development servers (frontend, backend, worker)
 - `pnpm run dev:frontend` - Start only frontend dev server (port 3000)
@@ -173,8 +190,8 @@ pnpm run dev
 ## Project Structure
 
 ```
-betteratimonan/
-├── apps/
+better-atimonan/
+├── apps/                      # Application packages
 │   ├── frontend/              # React + Vite frontend
 │   ├── backend/               # Express.js backend
 │   └── worker/                # Background job processor
@@ -185,11 +202,25 @@ betteratimonan/
 │   ├── tsconfig/              # TSConfig presets
 │   ├── ui-kit/                # Shared UI component library
 │   └── sdk/                   # API client SDK
-├── infrastructure/            # Docker, Kubernetes, Terraform, monitoring
+├── infrastructure/            # Infrastructure files
+│   ├── docker/                # Docker configuration
+│   ├── kubernetes/            # Kubernetes manifests
+│   ├── terraform/             # Terraform IaC
+│   ├── ansible/               # Ansible playbooks
+│   ├── monitoring/            # Prometheus, Grafana, Loki
+│   └── scripts/               # Utility scripts
 ├── docs/                      # Documentation
 ├── tools/                     # Development tools and generators
 └── .github/                   # CI/CD workflows
 ```
+
+## Documentation
+
+- `docs/architecture/` - Architecture documentation
+- `docs/api/` - API documentation
+- `docs/decisions/` - Architecture decision records
+- `docs/runbooks/` - Operations runbooks
+- `docs/diagrams/` - System diagrams
 
 ## License
 

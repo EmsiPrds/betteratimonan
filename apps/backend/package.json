@@ -1,5 +1,5 @@
 {
-  "name": "@monolith-modular-project-template/backend",
+  "name": "@better-atimonan/backend",
   "version": "1.0.0",
   "private": true,
   "description": "Backend API",
@@ -15,8 +15,8 @@
     "db:seed": "echo \"Seeds coming soon\""
   },
   "dependencies": {
-    "@monolith-modular-project-template/types": "workspace:*",
-    "@monolith-modular-project-template/utils": "workspace:*",
+    "@better-atimonan/types": "workspace:*",
+    "@better-atimonan/utils": "workspace:*",
     "express": "^4.18.2",
     "mongoose": "^8.0.0",
     "cors": "^2.8.5",

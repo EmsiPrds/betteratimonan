@@ -11,7 +11,7 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN pnpm run build --filter=@monolith-modular-project-template/frontend
+RUN pnpm run build --filter=@better-atimonan/frontend
 
 FROM nginx:alpine
 

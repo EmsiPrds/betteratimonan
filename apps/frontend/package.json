@@ -1,5 +1,5 @@
 {
-  "name": "@monolith-modular-project-template/frontend",
+  "name": "@better-atimonan/frontend",
   "version": "1.0.0",
   "private": true,
   "description": "Frontend",
@@ -13,8 +13,8 @@
     "lint": "echo \"Lint coming soon\""
   },
   "dependencies": {
-    "@monolith-modular-project-template/types": "workspace:*",
-    "@monolith-modular-project-template/utils": "workspace:*",
+    "@better-atimonan/types": "workspace:*",
+    "@better-atimonan/utils": "workspace:*",
     "@tanstack/react-query": "^5.15.0",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",

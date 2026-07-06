@@ -3,18 +3,18 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:7
-    container_name: monolith-modular-project-template-mongodb
+    container_name: better-atimonan-mongodb
     restart: unless-stopped
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
     environment:
-      MONGO_INITDB_DATABASE: monolith-modular-project-template
+      MONGO_INITDB_DATABASE: better-atimonan
 
   redis:
     image: redis:7-alpine
-    container_name: monolith-modular-project-template-redis
+    container_name: better-atimonan-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -25,14 +25,14 @@ services:
     build:
       context: .
       dockerfile: infrastructure/docker/backend.Dockerfile
-    container_name: monolith-modular-project-template-backend
+    container_name: better-atimonan-backend
     restart: unless-stopped
     ports:
       - "5000:5000"
     environment:
       NODE_ENV: development
       PORT: 5000
-      MONGODB_URI: mongodb://mongodb:27017/monolith-modular-project-template
+      MONGODB_URI: mongodb://mongodb:27017/better-atimonan
       REDIS_URL: redis://redis:6379
       JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this-in-production}
       CORS_ORIGIN: http://localhost:3000
@@ -51,7 +51,7 @@ services:
     build:
       context: .
       dockerfile: infrastructure/docker/frontend.Dockerfile
-    container_name: monolith-modular-project-template-frontend
+    container_name: better-atimonan-frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -68,7 +68,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: monolith-modular-project-template-nginx
+    container_name: better-atimonan-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -84,4 +84,4 @@ volumes:
 
 networks:
   default:
-    name: monolith-modular-project-template-network
+    name: better-atimonan-network

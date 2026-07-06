@@ -4,47 +4,59 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    'bg-brand-blue', 'bg-brand-navy', 'bg-brand-yellow', 'bg-brand-orange', 'bg-brand-white',
+    'text-brand-blue', 'text-brand-navy', 'text-brand-yellow', 'text-brand-orange',
+    'border-brand-blue', 'border-brand-yellow', 'border-brand-orange',
+  ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
-          800: '#1E40AF',
-          900: '#1E3A8A',
+        brand: {
+          blue:       '#003696', // primary blue
+          navy:       '#00184d', // deep navy
+          yellow:     '#f2c91d', // golden yellow
+          orange:     '#ea580c', // vivid orange
+          white:      '#ffffff',
         },
-        secondary: {
-          50: '#ECFDF5',
-          100: '#D1FAE5',
-          200: '#A7F3D0',
-          300: '#6EE7B7',
-          400: '#34D399',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
+        primary: {
+          50:  '#e6edf8',
+          100: '#ccdaf1',
+          200: '#99b5e3',
+          300: '#6690d5',
+          400: '#336bc7',
+          500: '#003696',
+          600: '#002b78',
+          700: '#00205a',
+          800: '#00184d', // same as brand.navy
+          900: '#000f30',
         },
         accent: {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+          50:  '#fefbe8',
+          100: '#fdf6c3',
+          200: '#fbed87',
+          300: '#f9e44b',
+          400: '#f2c91d', // brand yellow
+          500: '#d4a900',
+          600: '#a68500',
+          700: '#786100',
+          800: '#4a3c00',
+          900: '#1c1800',
         },
-        background: '#F8FAFC',
-        foreground: '#0F172A',
+        orange: {
+          50:  '#fef0e8',
+          100: '#fde0d1',
+          200: '#fbc1a3',
+          300: '#f89275',
+          400: '#f67347',
+          500: '#ea580c', // brand orange
+          600: '#c44a0a',
+          700: '#9e3c08',
+          800: '#782e06',
+          900: '#522004',
+        },
+        background: '#ffffff',
+        foreground: '#00184d',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
@@ -53,6 +65,7 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'count-up': 'countUp 1s ease-out',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -66,6 +79,10 @@ export default {
         countUp: {
           '0%': { opacity: '0', transform: 'scale(0.8)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },

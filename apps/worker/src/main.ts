@@ -1,1 +1,1 @@
-console.log('Monolith Modular Project Template Worker - Coming soon')
+console.log('Better Atimonan Worker - Starting...')

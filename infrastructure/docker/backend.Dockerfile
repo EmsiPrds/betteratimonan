@@ -11,7 +11,7 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN pnpm run build --filter=@monolith-modular-project-template/backend
+RUN pnpm run build --filter=@better-atimonan/backend
 
 FROM node:20-alpine AS runner
 
