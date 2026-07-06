@@ -20,10 +20,10 @@ importers:
 
   apps/backend:
     dependencies:
-      '@monolith-modular-project-template/types':
+      '@better-atimonan/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@monolith-modular-project-template/utils':
+      '@better-atimonan/utils':
         specifier: workspace:*
         version: link:../../packages/utils
       bcryptjs:
@@ -87,10 +87,10 @@ importers:
 
   apps/frontend:
     dependencies:
-      '@monolith-modular-project-template/types':
+      '@better-atimonan/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@monolith-modular-project-template/utils':
+      '@better-atimonan/utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@tanstack/react-query':
@@ -151,10 +151,10 @@ importers:
 
   apps/worker:
     dependencies:
-      '@monolith-modular-project-template/types':
+      '@better-atimonan/types':
         specifier: workspace:*
         version: link:../../packages/types
-      '@monolith-modular-project-template/utils':
+      '@better-atimonan/utils':
         specifier: workspace:*
         version: link:../../packages/utils
     devDependencies:
@@ -197,7 +197,7 @@ importers:
 
   packages/sdk:
     dependencies:
-      '@monolith-modular-project-template/types':
+      '@better-atimonan/types':
         specifier: workspace:*
         version: link:../types
     devDependencies:
@@ -228,7 +228,7 @@ importers:
 
   packages/utils:
     dependencies:
-      '@monolith-modular-project-template/types':
+      '@better-atimonan/types':
         specifier: workspace:*
         version: link:../types
     devDependencies:
