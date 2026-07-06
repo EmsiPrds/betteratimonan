@@ -1,8 +1,8 @@
 {
-  "name": "monolith-modular-project-template",
+  "name": "better-atimonan",
   "version": "1.0.0",
   "private": true,
-  "description": "Monolith Modular Project Template",
+  "description": "Better Atimonan",
   "author": "",
   "license": "MIT",
   "engines": {
@@ -13,15 +13,15 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:frontend": "turbo run dev --filter=@monolith-modular-project-template/frontend",
-    "dev:backend": "turbo run dev --filter=@monolith-modular-project-template/backend",
-    "dev:worker": "turbo run dev --filter=@monolith-modular-project-template/worker",
+    "dev:frontend": "turbo run dev --filter=@better-atimonan/frontend",
+    "dev:backend": "turbo run dev --filter=@better-atimonan/backend",
+    "dev:worker": "turbo run dev --filter=@better-atimonan/worker",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
     "clean": "turbo run clean",
-    "db:migrate": "turbo run db:migrate --filter=@monolith-modular-project-template/backend",
-    "db:seed": "turbo run db:seed --filter=@monolith-modular-project-template/backend",
+    "db:migrate": "turbo run db:migrate --filter=@better-atimonan/backend",
+    "db:seed": "turbo run db:seed --filter=@better-atimonan/backend",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:build": "docker-compose build"

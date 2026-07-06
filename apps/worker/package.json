@@ -1,5 +1,5 @@
 {
-  "name": "@monolith-modular-project-template/worker",
+  "name": "@better-atimonan/worker",
   "version": "1.0.0",
   "private": true,
   "description": "Background Worker",
@@ -11,8 +11,8 @@
     "test": "echo \"Tests coming soon\""
   },
   "dependencies": {
-    "@monolith-modular-project-template/types": "workspace:*",
-    "@monolith-modular-project-template/utils": "workspace:*"
+    "@better-atimonan/types": "workspace:*",
+    "@better-atimonan/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

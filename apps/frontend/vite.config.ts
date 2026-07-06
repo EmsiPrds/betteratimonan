@@ -10,8 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@monolith-modular-project-template/types': path.resolve(__dirname, '../../packages/types/src'),
-      '@monolith-modular-project-template/utils': path.resolve(__dirname, '../../packages/utils/src')
+      '@better-atimonan/types': path.resolve(__dirname, '../../packages/types/src'),
+      '@better-atimonan/utils': path.resolve(__dirname, '../../packages/utils/src')
     }
   },
   server: {

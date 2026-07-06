@@ -1,5 +1,5 @@
 {
-  "name": "@monolith-modular-project-template/utils",
+  "name": "@better-atimonan/utils",
   "version": "1.0.0",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -11,7 +11,7 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "@monolith-modular-project-template/types": "workspace:*"
+    "@better-atimonan/types": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.3.0"

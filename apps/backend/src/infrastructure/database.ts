@@ -3,7 +3,7 @@ import { logger } from '../shared/logger';
 
 export const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/monolith-modular-project-template';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/better-atimonan';
     
     logger.info('Connecting to database...');
     

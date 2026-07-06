@@ -1,6 +1,6 @@
-# Contributing to Monolith Modular Project Template
+# Contributing to Better Atimonan
 
-Thank you for your interest in contributing! This project welcomes contributions from everyone.
+Thank you for your interest in contributing!
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ Thank you for your interest in contributing! This project welcomes contributions
 
 ```bash
 git clone <repository-url>
-cd monolith-modular-project-template
+cd better-atimonan
 npm install -g pnpm@8.15.0
 pnpm install
 pnpm run dev
@@ -111,8 +111,8 @@ Types:
 
 ### Shared Packages
 
-- Use `@monolith-modular-project-template/types` for shared types
-- Use `@monolith-modular-project-template/utils` for shared utilities
+- Use `@better-atimonan/types` for shared types
+- Use `@better-atimonan/utils` for shared utilities
 - Keep packages focused and reusable
 
 ### Accessibility

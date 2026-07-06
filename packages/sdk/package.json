@@ -1,5 +1,5 @@
 {
-  "name": "@monolith-modular-project-template/sdk",
+  "name": "@better-atimonan/sdk",
   "version": "1.0.0",
   "private": true,
   "main": "src/index.ts",
@@ -12,7 +12,7 @@
     "lint": "echo \"Lint coming soon\""
   },
   "dependencies": {
-    "@monolith-modular-project-template/types": "workspace:*"
+    "@better-atimonan/types": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.3.0"

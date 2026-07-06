@@ -7,7 +7,7 @@ const logger = winston.createLogger({
     winston.format.errors({ stack: true }),
     winston.format.json()
   ),
-  defaultMeta: { service: 'monolith-modular-project-template-backend' },
+  defaultMeta: { service: 'better-atimonan-backend' },
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
